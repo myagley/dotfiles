@@ -1,6 +1,0 @@
-Host bt-workstation
-  Hostname 127.0.0.1
-  User pschless
-  Port 51322
-Host cronbox-pinterest
-  Hostname ec2-23-20-79-51.compute-1.amazonaws.com
