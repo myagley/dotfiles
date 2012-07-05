@@ -48,9 +48,11 @@ map <leader>nf :NERDTreeFind<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd vimenter * if !argc() | NERDTree | endif
 
-" Flake8
-autocmd BufWritePost *.py call Flake8()
-let g:flake8_ignore="E501"
+" Syntastic
+let g:syntastic_auto_loc_list=1
+let g:syntastic_enable_signs=1
+let g:syntastic_python_checker_args = "--ignore=E501"
+let g:syntastic_disabled_filetypes = ['scala']
 
 "map <silent> <LocalLeader>nt :NERDTreeToggle<CR>
 "map <silent> <LocalLeader>nr :NERDTree<CR>
@@ -122,4 +124,5 @@ set statusline+=%1*%y%*%*\                " file type
 set statusline+=%10(L(%l/%L)%)\           " line
 set statusline+=%2(C(%v/125)%)\           " column
 set statusline+=%P                        " percentage of file
+set statusline+=%{SyntasticStatuslineFlag()}
 
