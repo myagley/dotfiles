@@ -48,6 +48,10 @@ map <leader>nf :NERDTreeFind<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd vimenter * if !argc() | NERDTree | endif
 
+" Flake8
+autocmd BufWritePost *.py call Flake8()
+let g:flake8_ignore="E501"
+
 "map <silent> <LocalLeader>nt :NERDTreeToggle<CR>
 "map <silent> <LocalLeader>nr :NERDTree<CR>
 "map <silent> <LocalLeader>nf :NERDTreeFind<CR>
