@@ -3,3 +3,5 @@
   email = myagley@gmail.com
 [color]
   ui = auto
+[core]
+	editor = /usr/bin/vim
