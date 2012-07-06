@@ -5,6 +5,8 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 export ARCHFLAGS='-arch i386 -arch x86_64'
 
+export EDITOR="vim"
+
 # PostgreSQL
 export PATH=/Library/PostgreSQL/9.0/bin:$PATH
 export PGDATA=/Library/PostgreSQL/9.0/data
@@ -27,3 +29,6 @@ export PATH=$PATH:/usr/local/share/npm/bin
 # Clojure
 export CLOJURE_HOME=/usr/local/clojure
 export PATH=$PATH:$CLOJURE_HOME/bin/
+
+# tmuxinator
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
