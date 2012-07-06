@@ -25,11 +25,6 @@ set ignorecase
 set smartcase
 
 let g:gist_detect_filetype = 1
-
-let g:fuzzy_ignore = "*.log,tmp/*,db/sphinx/*,data,*.class"
-let g:fuzzy_ceiling = 50000
-let g:fuzzy_matching_limit = 10
-
 let g:no_html_toolbar = 'yes'
 
 autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4
@@ -54,13 +49,19 @@ let g:syntastic_enable_signs=1
 let g:syntastic_python_checker_args = "--ignore=E501"
 let g:syntastic_disabled_filetypes = ['scala']
 
-"map <silent> <LocalLeader>nt :NERDTreeToggle<CR>
-"map <silent> <LocalLeader>nr :NERDTree<CR>
-"map <silent> <LocalLeader>nf :NERDTreeFind<CR>
-"map <silent> <LocalLeader>ff :FuzzyFinderTextMate<CR>
-"map <silent> <LocalLeader>ft :FuzzyFinderTag<CR>
-"map <silent> <LocalLeader>fb :FuzzyFinderBuffer<CR>
-"map <silent> <LocalLeader>fr :FuzzyFinderTextMateRefreshFiles<CR>
+" FuzzyFinder
+map <leader>ff :FuzzyFinderTextMate<CR>
+map <leader>ft :FuzzyFinderTag<CR>
+map <leader>fb :FuzzyFinderBuffer<CR>
+map <leader>fr :FuzzyFinderTextMateRefreshFiles<CR>
+
+let g:fuzzy_ignore = "*.log,tmp/*,db/sphinx/*,data,*.class"
+let g:fuzzy_ceiling = 50000
+let g:fuzzy_matching_limit = 10
+
+map <leader>cc :TComment<CR>
+map <leader>uc :TComment<CR>
+
 "map <silent> <LocalLeader>gd :e product_diff.diff<CR>:%!git diff<CR>:setlocal buftype=nowrite<CR>
 "map <silent> <LocalLeader>pd :e product_diff.diff<CR>:%!svn diff<CR>:setlocal buftype=nowrite<CR>
 "map <silent> <LocalLeader>nh :nohls<CR>

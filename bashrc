@@ -5,7 +5,8 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 export ARCHFLAGS='-arch i386 -arch x86_64'
 
-export EDITOR="vim"
+export EDITOR="mvim -v"
+alias vim="mvim -v"
 
 # PostgreSQL
 export PATH=/Library/PostgreSQL/9.0/bin:$PATH
