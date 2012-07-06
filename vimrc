@@ -24,6 +24,10 @@ set nofoldenable
 set ignorecase
 set smartcase
 
+" Show tabs and eol
+set list
+set listchars=tab:▸\ 
+
 let g:gist_detect_filetype = 1
 let g:no_html_toolbar = 'yes'
 
@@ -39,6 +43,8 @@ let mapleader = ","
 map <leader>nt :NERDTreeToggle<CR>
 map <leader>nr :NERDTree<CR>
 map <leader>nf :NERDTreeFind<CR>
+
+let NERDTreeIgnore = ['\.pyc$']
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd vimenter * if !argc() | NERDTree | endif
@@ -59,9 +65,11 @@ let g:fuzzy_ignore = "*.log,tmp/*,db/sphinx/*,data,*.class"
 let g:fuzzy_ceiling = 50000
 let g:fuzzy_matching_limit = 10
 
+" Comment/Uncomment
 map <leader>cc :TComment<CR>
 map <leader>uc :TComment<CR>
 
+" Git
 map <leader>gd :e product_diff.diff<CR>:%!git diff<CR>:setlocal buftype=nowrite<CR>
 
 "map <silent> <LocalLeader>nh :nohls<CR>
@@ -99,6 +107,16 @@ endif
 " Highlight trailing whitespace
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd BufRead,InsertLeave * match ExtraWhitespace /\s\+$/
+
+" Remove trailing whitespace on save
+fun! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfun
+autocmd FileType c,cpp,java,php,ruby,python,html,htmldjango,scala,css,less,javascript autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
 " Set up highlight group & retain through colorscheme changes
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
