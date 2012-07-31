@@ -37,6 +37,7 @@ autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType tex setlocal textwidth=78
 autocmd BufNewFile,BufRead *.txt setlocal textwidth=78
 autocmd BufRead,BufNewFile *.g set syntax=antlr3
+autocmd BufRead,BufNewFile *.thrift set filetype=thrift
 
 let mapleader = ","
 
