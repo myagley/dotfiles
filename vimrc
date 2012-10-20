@@ -98,7 +98,7 @@ if version >= 700
 endif
 
 if &t_Co == 256
-  colorscheme default
+  colorscheme wombat256
 endif
 
 " Highlight trailing whitespace
