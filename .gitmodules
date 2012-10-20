@@ -16,3 +16,6 @@
 [submodule "vim/bundle/vim-c"]
 	path = vim/bundle/vim-c
 	url = git://github.com/vim-scripts/c.vim.git
+[submodule "oh-my-zsh"]
+	path = oh-my-zsh
+	url = git://github.com/robbyrussell/oh-my-zsh.git
