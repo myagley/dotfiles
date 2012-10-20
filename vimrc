@@ -69,20 +69,8 @@ map <leader>uc :TComment<CR>
 " Git
 map <leader>gd :e product_diff.diff<CR>:%!git diff<CR>:setlocal buftype=nowrite<CR>
 
-"map <silent> <LocalLeader>nh :nohls<CR>
-"map <LocalLeader>aw :Ack '<C-R><C-W>'
-"map <silent> <LocalLeader>bd :bufdo :bd<CR>
-
-"map <silent> <LocalLeader>vp :PromptVimTmuxCommand<CR>
-"map <silent> <LocalLeader>vl :RunLastVimTmuxCommand<CR>
-"map <silent> <LocalLeader>vi :InspectVimTmuxRunner<CR>
-"map <silent> <LocalLeader>vx :CloseVimTmuxPanes<CR>
-"map <silent> <LocalLeader>vs :InterruptVimTmuxRunner<CR>
-
-"map <silent> <LocalLeader>sc :wa<CR>:call RunVimTmuxCommand("clear && fsc -deprecation " . @%)<CR>
-
-"map <silent> <LocalLeader>mw :InterruptVimTmuxRunner<CR>
-"map <silent> <LocalLeader>mw :call RunVimTmuxCommand("clear && cake mocha:watch")<CR>
+map <leader>nh :nohls<CR>
+map <leader>bd :bufdo :bd<CR>
 
 command Wsudo w !sudo tee %
 cnoremap <Tab> <C-L><C-D>
