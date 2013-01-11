@@ -35,3 +35,9 @@ export PATH=$PATH:$CLOJURE_HOME/bin
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# Prompt
+function parse_git_branch {
+   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+export PS1="\w\$(parse_git_branch) $ "
