@@ -8,6 +8,15 @@ export ARCHFLAGS='-arch i386 -arch x86_64'
 export EDITOR="mvim -v"
 alias vim="mvim -v"
 
+# Virtualenv
+export WORKON_HOME=~/.virtualenv
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
+if [ -e /usr/local/bin/virtualenvwrapper.sh ]
+then
+  source /usr/local/bin/virtualenvwrapper.sh
+fi
+
 # PostgreSQL
 export PATH=/Library/PostgreSQL/9.0/bin:$PATH
 export PGDATA=/Library/PostgreSQL/9.0/data
