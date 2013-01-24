@@ -34,6 +34,7 @@ let g:no_html_toolbar = 'yes'
 autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType erlang setlocal tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType cs setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
 autocmd FileType tex setlocal textwidth=78
 autocmd BufNewFile,BufRead *.txt setlocal textwidth=78
