@@ -102,7 +102,7 @@ fun! <SID>StripTrailingWhitespaces()
   %s/\s\+$//e
   call cursor(l, c)
 endfun
-autocmd FileType c,cpp,java,php,ruby,python,html,htmldjango,scala,css,less,javascript autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType c,cpp,cs,java,php,ruby,python,html,htmldjango,scala,css,less,javascript autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 " Set up highlight group & retain through colorscheme changes
 highlight ExtraWhitespace ctermbg=red guibg=red
