@@ -35,6 +35,7 @@ autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType erlang setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType cs setlocal tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType go setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
 autocmd FileType tex setlocal textwidth=78
 autocmd BufNewFile,BufRead *.txt setlocal textwidth=78
@@ -102,7 +103,7 @@ fun! <SID>StripTrailingWhitespaces()
   %s/\s\+$//e
   call cursor(l, c)
 endfun
-autocmd FileType c,cpp,cs,java,php,ruby,python,html,htmldjango,scala,css,less,javascript autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType c,cpp,cs,go,java,php,ruby,python,html,htmldjango,scala,css,less,javascript autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 " Set up highlight group & retain through colorscheme changes
 highlight ExtraWhitespace ctermbg=red guibg=red
