@@ -50,3 +50,8 @@ function parse_git_branch {
    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 export PS1="\w\$(parse_git_branch) $ "
+
+# TempoDB SSH
+function ssh-sea01 () {
+  ssh $1.sea01.staging.tdb
+}
