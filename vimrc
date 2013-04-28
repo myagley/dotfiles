@@ -72,6 +72,9 @@ map <leader>uc :TComment<CR>
 " Git
 map <leader>gd :e product_diff.diff<CR>:%!git diff<CR>:setlocal buftype=nowrite<CR>
 
+" TagList
+nnoremap <silent> <leader>tt :TlistToggle<CR>
+
 map <leader>nh :nohls<CR>
 map <leader>bd :bufdo :bd<CR>
 
