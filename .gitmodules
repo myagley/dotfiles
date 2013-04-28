@@ -16,3 +16,6 @@
 [submodule "vim/bundle/vim-csharp"]
 	path = vim/bundle/vim-csharp
 	url = git@github.com:myagley/vim-csharp.git
+[submodule "vim/bundle/vim-scala"]
+	path = vim/bundle/vim-scala
+	url = git://github.com/derekwyatt/vim-scala.git
