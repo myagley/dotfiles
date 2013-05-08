@@ -22,3 +22,9 @@
 [submodule "vim/bundle/taglist"]
 	path = vim/bundle/taglist
 	url = git@github.com:myagley/taglist.vim.git
+[submodule "vim/bundle/vim-colors-solarized"]
+	path = vim/bundle/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "vim/bundle/mustache"]
+	path = vim/bundle/mustache
+	url = git://github.com/juvenn/mustache.vim.git
