@@ -40,6 +40,9 @@ export PATH=$PATH:/usr/local/share/npm/bin
 export CLOJURE_HOME=/usr/local/clojure
 export PATH=$PATH:$CLOJURE_HOME/bin
 
+# Maven
+export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m"
+
 # tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
