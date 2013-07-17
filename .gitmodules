@@ -28,3 +28,9 @@
 [submodule "vim/bundle/mustache"]
 	path = vim/bundle/mustache
 	url = git://github.com/juvenn/mustache.vim.git
+[submodule "vim/bundle/vim-arduino"]
+	path = vim/bundle/vim-arduino
+	url = git://github.com/kingbin/vim-arduino.git
+[submodule "vim/bundle/vim-fsharp"]
+	path = vim/bundle/vim-fsharp
+	url = git@github.com:kongo2002/fsharp-vim.git

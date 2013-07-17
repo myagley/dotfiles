@@ -5,8 +5,10 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 export ARCHFLAGS='-arch i386 -arch x86_64'
 
-export EDITOR="mvim -v"
-alias vim="mvim -v"
+if [[ $OSTYPE == 'darwin12' ]]; then
+  alias vim="mvim -v"
+fi
+export EDITOR="vim"
 
 # Virtualenv
 export WORKON_HOME=~/.virtualenv
