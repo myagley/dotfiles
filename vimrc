@@ -122,6 +122,9 @@ autocmd ColorScheme * highlight LineLengthError ctermbg=black guibg=black
 highlight Pmenu ctermfg=black ctermbg=gray
 highlight PmenuSel ctermfg=black ctermbg=white
 
+" Turn on clipboard for MacVim
+set clipboard=unnamed
+
 set laststatus=2
 set statusline=
 set statusline+=%<\                       " cut at start
