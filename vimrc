@@ -41,6 +41,7 @@ autocmd FileType tex setlocal textwidth=78
 autocmd BufNewFile,BufRead *.txt setlocal textwidth=78
 autocmd BufRead,BufNewFile *.g set syntax=antlr3
 autocmd BufRead,BufNewFile *.thrift set filetype=thrift
+autocmd BufRead,BufNewFile *.stg set filetype=stringtemplate
 
 let mapleader = ","
 
@@ -121,9 +122,6 @@ autocmd ColorScheme * highlight LineLengthError ctermbg=black guibg=black
 " Pretty colors for fuzzyfinder menus
 highlight Pmenu ctermfg=black ctermbg=gray
 highlight PmenuSel ctermfg=black ctermbg=white
-
-" Turn on clipboard for MacVim
-set clipboard=unnamed
 
 set laststatus=2
 set statusline=
