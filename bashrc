@@ -5,6 +5,11 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 export ARCHFLAGS='-arch i386 -arch x86_64'
 
+# Completion
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+  . `brew --prefix`/etc/bash_completion
+fi
+
 if [[ $OSTYPE == 'darwin12' ]]; then
   alias vim="mvim -v"
 fi
