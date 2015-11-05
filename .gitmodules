@@ -4,9 +4,6 @@
 [submodule "vim/bundle/vim-less"]
 	path = vim/bundle/vim-less
 	url = https://github.com/groenewege/vim-less.git
-[submodule "vim/bundle/vim-golang"]
-	path = vim/bundle/vim-golang
-	url = git://github.com/jnwhiteh/vim-golang.git
 [submodule "vim/bundle/vim-c"]
 	path = vim/bundle/vim-c
 	url = git://github.com/vim-scripts/c.vim.git

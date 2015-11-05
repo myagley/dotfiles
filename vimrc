@@ -94,7 +94,7 @@ if version >= 700
 endif
 
 if &t_Co == 256
-  colorscheme solarized
+  colorscheme wombat256mod
 endif
 
 " Highlight trailing whitespace
