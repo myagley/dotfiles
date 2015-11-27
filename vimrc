@@ -77,6 +77,12 @@ map <leader>gd :e product_diff.diff<CR>:%!git diff<CR>:setlocal buftype=nowrite<
 " TagList
 nnoremap <silent> <leader>tt :TlistToggle<CR>
 
+" vim-go
+let g:go_fmt_command = "goimports"
+let g:neocomplete#enable_at_startup = 1
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+set completeopt-=preview
+
 map <leader>nh :nohls<CR>
 map <leader>bd :bufdo :bd<CR>
 

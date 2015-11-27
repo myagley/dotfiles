@@ -57,6 +57,9 @@ export PATH=$HOME/.cabal/bin:$PATH
 export BEES_HOME=/usr/local/cloudbees
 export PATH=$PATH:$BEES_HOME
 
+# golang
+export GOPATH=$HOME/Code/golang
+
 # alias mvn="color_maven"
 # alias maven="/usr/local/bin/mvn"
 # 
