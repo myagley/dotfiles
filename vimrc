@@ -36,6 +36,9 @@ autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType erlang setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType cs setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType go setlocal tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType html setlocal tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType json setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 autocmd FileType tex setlocal textwidth=78
 autocmd BufNewFile,BufRead *.txt setlocal textwidth=78
@@ -57,6 +60,9 @@ let NERDTreeShowHidden=1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd vimenter * if !argc() | NERDTree | endif
 
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
+
 " FuzzyFinder
 map <leader>ff :FuzzyFinderTextMate<CR>
 map <leader>ft :FuzzyFinderTag<CR>
@@ -71,17 +77,24 @@ let g:fuzzy_matching_limit = 10
 map <leader>cc :TComment<CR>
 map <leader>uc :TComment<CR>
 
-" Git
-map <leader>gd :e product_diff.diff<CR>:%!git diff<CR>:setlocal buftype=nowrite<CR>
-
 " TagList
 nnoremap <silent> <leader>tt :TlistToggle<CR>
 
 " vim-go
 let g:go_fmt_command = "goimports"
 let g:neocomplete#enable_at_startup = 1
+let g:go_auto_type_info = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 set completeopt-=preview
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au FileType go nmap <Leader>s <Plug>(go-implements)
+au FileType go nmap <Leader>i <Plug>(go-info)
 
 map <leader>nh :nohls<CR>
 map <leader>bd :bufdo :bd<CR>
