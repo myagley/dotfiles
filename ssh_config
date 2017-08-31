@@ -1,4 +1,0 @@
-Host *.tdb
-  VerifyHostKeyDNS yes
-  User myagley
-  Port 1535
