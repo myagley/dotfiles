@@ -1,3 +1,5 @@
+let mapleader = ","
+
 " Specify a directory for plugins
 " " - For Neovim: ~/.local/share/nvim/plugged
 " " - Avoid using standard Vim directory names like 'plugin'
@@ -9,6 +11,8 @@ Plug 'scrooloose/nerdtree'
 
 Plug 'vim-scripts/wombat256.vim'
 
+Plug 'vim-scripts/tComment'
+
 " Initialize plugin system
 call plug#end()
 
@@ -18,8 +22,6 @@ colo wombat256mod
 set list
 set listchars=tab:▸\ 
 
-let mapleader = ","
-
 " NERDTree
 map <leader>nt :NERDTreeToggle<CR>
 map <leader>nr :NERDTree<CR>
@@ -28,8 +30,12 @@ map <leader>nf :NERDTreeFind<CR>
 let NERDTreeIgnore = ['\.pyc$']
 let NERDTreeShowHidden=1
 
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-autocmd vimenter * if !argc() | NERDTree | endif
+" Open nerdtree if opening vim with no files specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Close vim if nerdtree is the only open window
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Comment/Uncomment
 map <leader>cc :TComment<CR>
