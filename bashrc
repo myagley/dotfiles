@@ -60,6 +60,10 @@ export PATH=$PATH:$BEES_HOME
 # golang
 export GOPATH=$HOME/Code/golang
 
+# rust
+export PATH=$PATH:~/.cargo/bin
+
+
 # alias mvn="color_maven"
 # alias maven="/usr/local/bin/mvn"
 # 
