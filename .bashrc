@@ -1,110 +1,100 @@
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+#!/bin/bash
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
 
-export CLICOLOR=1
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+# If not running interactively, don't do anything
+case $- in
+	*i*) ;;
+	*) return;;
+esac
 
-export ARCHFLAGS='-arch i386 -arch x86_64'
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
 
-# Completion
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+	debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-if [[ $OSTYPE == 'darwin12' ]]; then
-  alias vim="mvim -v"
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+	xterm-color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+	if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+		color_prompt=yes
+	else
+		color_prompt=
+	fi
 fi
-export EDITOR="vim"
 
-# Virtualenv
-export WORKON_HOME=~/.virtualenv
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
-export PIP_RESPECT_VIRTUALENV=true
-if [ -e /usr/local/bin/virtualenvwrapper.sh ]
-then
-  source /usr/local/bin/virtualenvwrapper.sh
+if [ "$color_prompt" = yes ]; then
+	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+	PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+	xterm*|rxvt*)
+		PS1="\\[\\e]0;${debian_chroot:+($debian_chroot)}\\u@\\h: \\w\\a\\]$PS1"
+		;;
+	*)
+		;;
+esac
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+	# shellcheck disable=SC2015
+	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	alias ls='ls --color=auto'
+	alias dir='dir --color=auto'
+	alias vdir='vdir --color=auto'
+
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
 fi
 
-# PostgreSQL
-export PATH=/Library/PostgreSQL/9.0/bin:$PATH
-export PGDATA=/Library/PostgreSQL/9.0/data
+# Add an "alert" alias for long running commands.  Use like so:
+#	sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Scala
-export SCALA_HOME=/usr/local/scala
-export PATH=$PATH:$SCALA_HOME/bin
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+	if [[ -f /usr/share/bash-completion/bash_completion ]]; then
+		# shellcheck source=/dev/null
+		. /usr/share/bash-completion/bash_completion
+	elif [[ -f /etc/bash_completion ]]; then
+		# shellcheck source=/dev/null
+		. /etc/bash_completion
+	fi
+fi
+#for file in /etc/bash_completion.d/* ; do
+	# shellcheck source=/dev/null
+#	source "$file"
+#done
 
-# HBase
-export HBASE_HOME=/usr/local/hbase
-export PATH=$HBASE_HOME/bin:$PATH
+if [[ -f "${HOME}/.bash_profile" ]]; then
+	# shellcheck source=/dev/null
+	source "${HOME}/.bash_profile"
+fi
 
-# Java
-export JAVA_HOME=`/usr/libexec/java_home`
-
-# Node
-export NODE_PATH=/usr/local/lib/node
-export PATH=$PATH:/usr/local/share/npm/bin
-
-# Clojure
-export CLOJURE_HOME=/usr/local/clojure
-export PATH=$PATH:$CLOJURE_HOME/bin
-
-# Maven
-export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m"
-
-# Haskelll
-export PATH=$HOME/.cabal/bin:$PATH
-
-# Cloudbees
-export BEES_HOME=/usr/local/cloudbees
-export PATH=$PATH:$BEES_HOME
-
-# golang
-export GOPATH=$HOME/Code/golang
-
-# rust
-export PATH=$PATH:~/.cargo/bin
-
-
-# alias mvn="color_maven"
-# alias maven="/usr/local/bin/mvn"
-# 
-# color_maven() {
-#   local BOLD=`tput bold`
-#   local TEXT_RED=`tput setaf 1`
-#   local TEXT_GREEN=`tput setaf 2`
-#   local TEXT_YELLOW=`tput setaf 3`
-#   local TEXT_PURPLE=`tput setaf 5`
-#   local TEXT_WHITE=`tput setaf 7`
-#   local RESET_FORMATTING=`tput sgr0`
-# 
-#   maven $@ | sed -e "s/\\(\\[INFO\\]\\ \\-\\-\\-\\ .*\\)/${TEXT_BLUE}\\1${RESET_FORMATTING}/g" \\
-#     -e "s/\\(\\[INFO\\]\\ \\[.*\\)/${RESET_FORMATTING}\\1${RESET_FORMATTING}/g" \\
-#     -e "s/\\(\\[INFO\\]\\ \\)\\(BUILD SUCCESS\\)/\\1${TEXT_GREEN}\\2${RESET_FORMATTING}/g" \\
-#     -e "s/\\(\\[INFO\\]\\ \\)\\(BUILD FAILURE\\)/\\1${TEXT_RED}\\2${RESET_FORMATTING}/g" \\
-#     -e "s/\\(.WARNING.*\\)/${TEXT_YELLOW}\\1${RESET_FORMATTING}/g" \\
-#     -e "s/\\(\\[ERROR\\]\\)/${TEXT_RED}\\1${RESET_FORMATTING}/g" \\
-#     -e "s/\\(\\[debug\\]\\)/${TEXT_PURPLE}\\1${RESET_FORMATTING}/g" \\
-#     -e "s/\\(Exception in thread \\".*\\" \\)\\(.*\\)/\\1${TEXT_RED}\\2${RESET_FORMATTING}/g" \\
-#     -e "s/\\(SUCCESS \\)\\[/${RESET_FORMATTING}${TEXT_GREEN}\\1${RESET_FORMATTING}\\[/g" \\
-#     -e "s/\\(FAILURE \\)\\[/${RESET_FORMATTING}${TEXT_RED}\\1${RESET_FORMATTING}\\[/g" \\
-#     -e "s/\\(Caused by: \\)\\([^:\\t ]*\\)/\\1${TEXT_RED}\\2${RESET_FORMATTING}/g" \\
-#     -e "s/\\(ERROR\\ \\[.*\\)/${TEXT_RED}\\1${RESET_FORMATTING}/g" \\
-#     -e "s/Tests run: \\([^,]*\\), Failures: \\([^,0]*\\), Errors: \\([^,]*\\), Skipped: \\([^,]*\\)/${TEXT_GREEN}Tests run: \\1${RESET_FORMATTING}, Failures: ${TEXT_RED}\\2${RESET_FORMATTING}, Errors: ${TEXT_RED}\\3${RESET_FORMATTING}, Skipped: ${TEXT_YELLOW}\\4${RESET_FORMATTING}/g"
-# 
-#   echo -ne ${RESET_FORMATTING}
-# }
-
-# tmuxinator
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-# Prompt
-function parse_git_branch {
-   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
-export PS1="\w\$(parse_git_branch) $ "
-
-# TempoDB SSH
-function ssh-sea01 () {
-  ssh $1.sea01.staging.tdb
-}
