@@ -185,7 +185,7 @@ client.urgent           #d33682 #d33682 #fdf6e3 #dc322f
 # finds out, if available)
 bar {
         status_command i3status --config $HOME/.i3/status.conf
-        position top
+        position bottom
         tray_output LVDS1
 
         # solarized again :D
