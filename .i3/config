@@ -223,11 +223,3 @@ bindsym $mod+Ctrl+l exec xlock
 # mouse
 focus_follows_mouse no
 mouse_warping       none
-
-# init commands
-# Turn on natural scrolling
-exec synclient HorizScrollDelta=-65 VertScrollDelta=-65
-# Turn off edge scrolling
-exec synclient HorizEdgeScroll=0 VertEdgeScroll=0
-# Turn off tap click (single finger, two finger, and 3 finger)
-exec synclient TapButton1=0 TapButton2=0 TapButton3=0
