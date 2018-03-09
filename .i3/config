@@ -9,7 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
 set $left  h
 set $down  j
@@ -138,8 +138,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # screen brightness controls
-bindsym XF86MonBrightnessUp exec sudo light -A 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec sudo light -U 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -185,7 +185,7 @@ client.urgent           #d33682 #d33682 #fdf6e3 #dc322f
 # finds out, if available)
 bar {
         status_command i3status --config $HOME/.i3/status.conf
-        position top
+        position bottom
         tray_output LVDS1
 
         # solarized again :D
@@ -223,11 +223,3 @@ bindsym $mod+Ctrl+l exec xlock
 # mouse
 focus_follows_mouse no
 mouse_warping       none
-
-# init commands
-# Turn on natural scrolling
-exec synclient HorizScrollDelta=-65 VertScrollDelta=-65
-# Turn off edge scrolling
-exec synclient HorizEdgeScroll=0 VertEdgeScroll=0
-# Turn off tap click (single finger, two finger, and 3 finger)
-exec synclient TapButton1=0 TapButton2=0 TapButton3=0
