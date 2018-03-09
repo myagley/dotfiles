@@ -13,6 +13,8 @@ Plug 'vim-scripts/wombat256.vim'
 
 Plug 'vim-scripts/tComment'
 
+Plug 'rust-lang/rust.vim'
+
 " Initialize plugin system
 call plug#end()
 
