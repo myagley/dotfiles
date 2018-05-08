@@ -83,3 +83,6 @@ set statusline+=%P                        " percentage of file
 
 " Store swap files in fixed location, not current directory.
 set dir=~/.vimswap//,/var/tmp//,/tmp//,.
+
+" Turn on line numbers
+set number
