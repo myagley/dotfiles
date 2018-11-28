@@ -4,6 +4,16 @@ if [[ -f "${HOME}/.cargo/env" ]]; then
     source "${HOME}/.cargo/env"
 fi
 
+# golang
+if [[ -d "/usr/local/go/bin" ]]; then
+    export PATH=${PATH}:/usr/local/go/bin
+fi
+
+# local bin
+if [[ -d "${HOME}/.local/bin" ]]; then
+    export PATH=${PATH}:${HOME}/.local/bin
+fi
+
 # virtualenv
 if [[ -f "${HOME}/.local/bin/virtualenvwrapper.sh" ]]; then
     export WORKON_HOME=$HOME/.virtualenvs

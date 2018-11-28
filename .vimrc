@@ -15,6 +15,8 @@ Plug 'vim-scripts/tComment'
 
 Plug 'rust-lang/rust.vim'
 
+Plug 'kergoth/vim-bitbake'
+
 " Initialize plugin system
 call plug#end()
 
