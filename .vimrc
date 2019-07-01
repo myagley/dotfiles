@@ -15,6 +15,8 @@ Plug 'vim-scripts/tComment'
 
 Plug 'rust-lang/rust.vim'
 
+Plug 'ycm-core/YouCompleteMe'
+
 " Initialize plugin system
 call plug#end()
 
@@ -86,3 +88,6 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//,.
 
 " Turn on line numbers
 set number
+
+" Ycm
+map <F12> :YcmCompleter GoToDefinition<CR>
