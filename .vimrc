@@ -16,6 +16,9 @@ Plug 'vim-scripts/tComment'
 Plug 'rust-lang/rust.vim'
 
 Plug 'kergoth/vim-bitbake'
+Plug 'ycm-core/YouCompleteMe'
+
+Plug 'w0rp/ale'
 
 " Initialize plugin system
 call plug#end()
@@ -88,3 +91,9 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//,.
 
 " Turn on line numbers
 set number
+
+" Ycm
+map <F12> :YcmCompleter GoToDefinition<CR>
+
+" ALE
+let g:ale_linters = {'rust': ['cargo', 'rls']}
