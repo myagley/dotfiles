@@ -6,7 +6,8 @@ fi
 
 # golang
 if [[ -d "/usr/local/go/bin" ]]; then
-    export PATH=${PATH}:/usr/local/go/bin
+    export GOPATH=$(/usr/local/go/bin/go env GOPATH)
+    export PATH=${PATH}:/usr/local/go/bin:${GOPATH}/bin
 fi
 
 # local bin
