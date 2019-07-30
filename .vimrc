@@ -16,9 +16,12 @@ Plug 'vim-scripts/tComment'
 Plug 'rust-lang/rust.vim'
 
 Plug 'kergoth/vim-bitbake'
-Plug 'ycm-core/YouCompleteMe'
 
-Plug 'w0rp/ale'
+" Plug 'ycm-core/YouCompleteMe'
+"
+" Plug 'w0rp/ale'
+
+Plug 'vim-airline/vim-airline'
 
 " Initialize plugin system
 call plug#end()
@@ -75,16 +78,16 @@ autocmd BufRead,InsertEnter,InsertLeave * 2match LineLengthError /\%126v.*/
 highlight LineLengthError ctermbg=black guibg=black
 autocmd ColorScheme * highlight LineLengthError ctermbg=black guibg=black
 
-set laststatus=2
-set statusline=
-set statusline+=%<                       " cut at start
-set statusline+=%2*[%n%H%M%R%W]%*        " buffer number, and flags
-set statusline+=%-40f                    " relative path
-set statusline+=%=                        " seperate between right- and left-aligned
-set statusline+=%1*%y%*%*                " file type
-set statusline+=%10(L(%l/%L)%)           " line
-set statusline+=%2(C(%v/125)%)           " column
-set statusline+=%P                        " percentage of file
+" set laststatus=2
+" set statusline=
+" set statusline+=%<                       " cut at start
+" set statusline+=%2*[%n%H%M%R%W]%*        " buffer number, and flags
+" set statusline+=%-40f                    " relative path
+" set statusline+=%=                        " seperate between right- and left-aligned
+" set statusline+=%1*%y%*%*                " file type
+" set statusline+=%10(L(%l/%L)%)           " line
+" set statusline+=%2(C(%v/125)%)           " column
+" set statusline+=%P                        " percentage of file
 
 " Store swap files in fixed location, not current directory.
 set dir=~/.vimswap//,/var/tmp//,/tmp//,.
@@ -97,3 +100,8 @@ map <F12> :YcmCompleter GoToDefinition<CR>
 
 " ALE
 let g:ale_linters = {'rust': ['cargo', 'rls']}
+let g:ale_sign_column_always = 1
+let g:airline#extensions#ale#enabled = 1
+
+" Airline
+let g:airline#extensions#branch#enabled = 1
