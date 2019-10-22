@@ -25,6 +25,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'vim-airline/vim-airline'
 
+Plug 'pest-parser/pest.vim'
+
 " Initialize plugin system
 call plug#end()
 
