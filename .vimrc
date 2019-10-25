@@ -27,10 +27,13 @@ Plug 'vim-airline/vim-airline'
 
 Plug 'pest-parser/pest.vim'
 
+Plug 'cespare/vim-toml'
+
 " Initialize plugin system
 call plug#end()
 
-colo wombat256mod
+set background=dark
+colorscheme wombat256mod
 
 " Show tabs and eol
 set list
