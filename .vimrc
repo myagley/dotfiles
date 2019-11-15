@@ -27,6 +27,8 @@ Plug 'vim-airline/vim-airline'
 
 Plug 'pest-parser/pest.vim'
 
+Plug 'rhysd/vim-wasm'
+
 " Initialize plugin system
 call plug#end()
 
