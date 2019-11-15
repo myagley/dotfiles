@@ -7,6 +7,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
 
+Plug 'tpope/vim-fugitive'
+
 Plug 'scrooloose/nerdtree'
 
 Plug 'vim-scripts/wombat256.vim'
@@ -110,8 +112,13 @@ let g:ale_sign_column_always = 1
 let g:airline#extensions#ale#enabled = 1
 
 " Airline
-let g:airline#extensions#branch#enabled = 1
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+let g:airline#extensions#branch#enabled=1
 let g:airline#extensions#coc#enabled = 1
+let g:airline#extensions#whitespace#enabled = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CoC
