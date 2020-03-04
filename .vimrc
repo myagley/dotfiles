@@ -33,6 +33,8 @@ Plug 'rhysd/vim-wasm'
 
 Plug 'cespare/vim-toml'
 
+Plug 'tsandall/vim-rego'
+
 " Initialize plugin system
 call plug#end()
 
@@ -42,6 +44,8 @@ colorscheme wombat256mod
 " Show tabs and eol
 set list
 set listchars=tab:▸\ 
+
+autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 
 " NERDTree
 map <leader>nt :NERDTreeToggle<CR>
