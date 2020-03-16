@@ -23,4 +23,7 @@ if [[ -f "${HOME}/.local/bin/virtualenvwrapper.sh" ]]; then
     source $HOME/.local/bin/virtualenvwrapper.sh
 fi
 
-export PATH=$PATH:$HOME/.local/bin
+if [[ -d "${HOME}/.wasmtime" ]]; then
+    export WASMTIME_HOME="$HOME/.wasmtime"
+    export PATH="$WASMTIME_HOME/bin:$PATH"
+fi

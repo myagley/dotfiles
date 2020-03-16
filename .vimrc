@@ -45,7 +45,7 @@ colorscheme wombat256mod
 set list
 set listchars=tab:▸\ 
 
-autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType html,javascript,json,wast,yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 
 " NERDTree
 map <leader>nt :NERDTreeToggle<CR>
