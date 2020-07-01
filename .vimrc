@@ -35,6 +35,10 @@ Plug 'cespare/vim-toml'
 
 Plug 'tsandall/vim-rego'
 
+Plug 'fatih/vim-go'
+
+Plug 'qnighy/lalrpop.vim'
+
 " Initialize plugin system
 call plug#end()
 
@@ -46,6 +50,7 @@ set list
 set listchars=tab:▸\ 
 
 autocmd FileType html,javascript,json,wast,yaml setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType lalrpop setlocal shiftwidth=4 softtabstop=4 expandtab
 
 " NERDTree
 map <leader>nt :NERDTreeToggle<CR>
@@ -81,7 +86,7 @@ fun! <SID>StripTrailingWhitespaces()
   %s/\s\+$//e
   call cursor(l, c)
 endfun
-autocmd FileType c,cpp,cs,go,java,php,ruby,python,html,htmldjango,scala,css,less,javascript,xml autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType c,cpp,cs,rust,java,php,ruby,python,html,htmldjango,scala,css,less,javascript,xml autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 " Set up highlight group & retain through colorscheme changes
 highlight ExtraWhitespace ctermbg=red guibg=red
